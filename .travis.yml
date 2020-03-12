@@ -14,4 +14,4 @@ install:
 
 script:
   - docker build -t mmphego/nuke_my_tweets .
-  - docker run --user mmphego mmphego/nuke_my_tweets
+  - docker run --rm -ti --user mmphego mmphego/nuke_my_tweets bash script.sh
