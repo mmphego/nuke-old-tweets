@@ -16,4 +16,4 @@ before_script:
   - docker build -t nuke_my_tweets .
 
 script:
-  - docker run nuke_my_tweets
+  - docker run -u mmphego nuke_my_tweets
