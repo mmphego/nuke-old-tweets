@@ -13,5 +13,5 @@ install:
   - unzip secrets.zip
 
 script:
-  - docker build -t nuke_my_tweets .
-  - docker run -u mmphego nuke_my_tweets
+  - docker build -t mmphego/nuke_my_tweets .
+  - docker run --user mmphego mmphego/nuke_my_tweets
