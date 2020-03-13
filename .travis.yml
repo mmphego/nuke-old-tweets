@@ -23,4 +23,13 @@ install:
 
 script:
   - docker build -t mmphego/nuke_my_tweets .
-  - docker run --rm -ti --user mmphego mmphego/nuke_my_tweets bash script.sh
+  - docker run \
+            -ti \
+            --env API_KEY=$API_KEY \
+            --env API_SECRET=$API_SECRET \
+            --env ACCESS_TOKEN_KEY=$ACCESS_TOKEN_KEY \
+            --env ACCESS_TOKEN_SECRET=$ACCESS_TOKEN_SECRET \
+            --env TWITTER_USERNAME=$TWITTER_USERNAME \
+            --user mmphego \
+                mmphego/nuke_my_tweets \
+                bash script.sh
