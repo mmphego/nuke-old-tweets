@@ -20,7 +20,9 @@ env:
 install:
   - openssl aes-256-cbc -K $encrypted_ebe4013f8360_key -iv $encrypted_ebe4013f8360_iv -in secrets.zip.enc -out secrets.zip -d
   - unzip secrets.zip
-  - tree
+  - ls -thora
+  - ls -thora .semiphemeral
+
 
 script:
   - docker build -t mmphego/nuke_my_tweets .
