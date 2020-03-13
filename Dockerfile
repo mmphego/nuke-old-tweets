@@ -1,8 +1,8 @@
 FROM python:3
 ENV USERNAME=mmphego
 
-# https://github.com/micahflee/semiphemeral
-RUN pip install semiphemeral
+# https://github.com/mmphego/semiphemeral
+RUN pip install https://github.com/mmphego/semiphemeral/archive/master.zip
 
 RUN useradd -m $USERNAME
 USER $USERNAME
