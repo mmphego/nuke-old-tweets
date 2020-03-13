@@ -24,3 +24,6 @@ install:
 script:
   - docker build -t mmphego/nuke_my_tweets .
   - docker run --env API_KEY=$API_KEY --env API_SECRET=$API_SECRET --env ACCESS_TOKEN_KEY=$ACCESS_TOKEN_KEY --env ACCESS_TOKEN_SECRET=$ACCESS_TOKEN_SECRET --env TWITTER_USERNAME=$TWITTER_USERNAME -ti --user mmphego mmphego/nuke_my_tweets
+
+after_script:
+  - cat .semiphemeral/settings.json | jq 'del(.api_key,.api_secret,.access_token_key,.access_token_secret,.username,.user_id)'
