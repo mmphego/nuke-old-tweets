@@ -17,14 +17,17 @@ env:
     - secure: sHPv1IxXCuD2pcyBtlPVnLYBoxH1Dgy+uz23XBjSzoePJhOtx4t71CeApD1fIVi5xgdmZauLqmm2FMw6hoHRYO4ng8BnUw7Sqr/9G0XxkjcVZbDGASP8PEC4c/YZ3LGCpJp9q4qHCRffd6VsV4MJ+yG0wu/EJz+ACZEwCgyIgRgmgopt5irDlBj2SlJk93rbZSvrsea2V7W5O2eamBrHnWBhESvqxFzLPg8jpGw2B+joB8gVk90vrNnoc5SzXKBZQdyR+7Sx750DIdik41wtQ866Ab29tc89hSUgaknSMpdPvMVxmERdALi1OCD3z9fZMFXyp+XDd780IRGYOujXosm2P9dDNP8MBksDUmk+cTVPDS55upQ8NOJWJbvzQD3xoEhaVSPoEk+HHT8hvA/mYeJDlTxmnGCOHo4agwe8I/g9lYbywhq33Xm183y8nuV7sUv23jk6H9T2GJtlm5KmDO6gCokc1iTRfIR6GDhwhB0EBYC7FLDbSgmsHT8XbpPA1s9CzQSQXZMI58IUqmErxz3RCYAGn0NmCkSkQuHh+/x/AnGyMtwr1cvEae1J4gDRkMVDaPIe8DZSZmO+A3Poq2IRbjft/N4EZB4aB2lUQvyMHuHNemuzfS6GBGx9SGjDy2DIt0K3yERx/RlWtgU5qUj4MzQ7kMqtNHZ+Lut/3JM=
     - secure: tUBHb9AxL3PYNNG33ZOSPDpjClzGwMKkpZapdBDJPlSt9vZMvyRaVkgKjDJaMTTeZTIH/5+R8s/ekzPWFSI8NvnikSEJbocbY8uTmBorDDo60vaQ28fX38IJHj/e+SMhXVAHsKUBRzJ7UrksAus6QlOAkwsvxQUck+m/EjLYIc+/qdw5rbH/nyEt7j5Wn8eC2EqihSatz8XIZU0IWbJHLmDGBQjJm80EvzzNDvzmck80pBlpCyA0aaArV/drTFF1eS/zGyX2xcTQmvh/NNn8QbI8Hc6CGvmRiWFj+5Rk6XidHSGejQUn81JaCpzV4H+BU89Y2HvxBAxfLEXDsoTgdaDCcNPkJwDe5TfA9PzNM8E89A9VrplRwJDP4bXqfDDfrmOM2y8IYzxDEmCUWmPsD9II73rQOg00olTug2aXAFJjfsylMNbUFV1JvcW6sPGGnOQAXdfw39Cvw60uCZ0aAJSoEVkAs6fRwQWjWdFAUiRL317O+NT7qILH6L5ROsQVQ+cphAyQEIGZAAf7vUu5i9iV192xAh80K3Ocd4luu8m+NHawrBJRCu37GNNvGKr3g+DRYZi4/SqJusJlEXhWRNHQKz/fBLw1m90wENhTCtmAE7iOJP60pT100+qQV468b5M/PqgzZAkBVvdecN4h6TP3WCwnWjATHWJeP4MmVtY=
 
-install:
-  -     openssl aes-256-cbc -K $encrypted_ebe4013f8360_key -iv $encrypted_ebe4013f8360_iv -in secrets.zip.enc -out secrets.zip -d
-  - unzip secrets.zip
-  - ls -thora
-  - ls -thora .semiphemeral
+cache:
+  directories:
+    - /home/travis/.semiphemeral
 
+install:
+  - openssl aes-256-cbc -K $encrypted_ebe4013f8360_key -iv $encrypted_ebe4013f8360_iv -in secrets.zip.enc -out secrets.zip -d
+  - unzip secrets.zip
 
 script:
   - docker build -t mmphego/nuke_my_tweets .
+
+after_script:
   - docker run --env API_KEY=$API_KEY --env API_SECRET=$API_SECRET --env ACCESS_TOKEN_KEY=$ACCESS_TOKEN_KEY --env ACCESS_TOKEN_SECRET=$ACCESS_TOKEN_SECRET --env TWITTER_USERNAME=$TWITTER_USERNAME -ti --user mmphego mmphego/nuke_my_tweets
 
