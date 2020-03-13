@@ -18,7 +18,7 @@ env:
     - secure: tUBHb9AxL3PYNNG33ZOSPDpjClzGwMKkpZapdBDJPlSt9vZMvyRaVkgKjDJaMTTeZTIH/5+R8s/ekzPWFSI8NvnikSEJbocbY8uTmBorDDo60vaQ28fX38IJHj/e+SMhXVAHsKUBRzJ7UrksAus6QlOAkwsvxQUck+m/EjLYIc+/qdw5rbH/nyEt7j5Wn8eC2EqihSatz8XIZU0IWbJHLmDGBQjJm80EvzzNDvzmck80pBlpCyA0aaArV/drTFF1eS/zGyX2xcTQmvh/NNn8QbI8Hc6CGvmRiWFj+5Rk6XidHSGejQUn81JaCpzV4H+BU89Y2HvxBAxfLEXDsoTgdaDCcNPkJwDe5TfA9PzNM8E89A9VrplRwJDP4bXqfDDfrmOM2y8IYzxDEmCUWmPsD9II73rQOg00olTug2aXAFJjfsylMNbUFV1JvcW6sPGGnOQAXdfw39Cvw60uCZ0aAJSoEVkAs6fRwQWjWdFAUiRL317O+NT7qILH6L5ROsQVQ+cphAyQEIGZAAf7vUu5i9iV192xAh80K3Ocd4luu8m+NHawrBJRCu37GNNvGKr3g+DRYZi4/SqJusJlEXhWRNHQKz/fBLw1m90wENhTCtmAE7iOJP60pT100+qQV468b5M/PqgzZAkBVvdecN4h6TP3WCwnWjATHWJeP4MmVtY=
 
 install:
-  - openssl aes-256-cbc -K $encrypted_ebe4013f8360_key -iv $encrypted_ebe4013f8360_iv -in secrets.zip.enc -out secrets.zip -d
+  -     openssl aes-256-cbc -K $encrypted_ebe4013f8360_key -iv $encrypted_ebe4013f8360_iv -in secrets.zip.enc -out secrets.zip -d
   - unzip secrets.zip
   - ls -thora
   - ls -thora .semiphemeral
