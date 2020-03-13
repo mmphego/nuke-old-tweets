@@ -2,7 +2,7 @@ FROM python:3
 ENV USERNAME=mmphego
 RUN apt-get update -q && \
     apt-get install -qq -y \
-    jq \
+    jq && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf  /var/cache/apt/archives/
