@@ -14,4 +14,4 @@ USER root
 RUN chown -R $USERNAME:$USERNAME /home/$USERNAME
 
 USER $USERNAME
-# CMD [ "bash", "script.sh" ]
+CMD [ "bash", "script.sh" ]
