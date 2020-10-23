@@ -1,4 +1,4 @@
-language: c
+language: minimal
 
 sudo: false
 
@@ -19,7 +19,7 @@ env:
 
 cache:
   directories:
-    - /home/travis/.semiphemeral
+    - /home/travis/mmphego/nuke-old-tweets/.semiphemeral
 
 install:
   - openssl aes-256-cbc -K $encrypted_ebe4013f8360_key -iv $encrypted_ebe4013f8360_iv -in secrets.zip.enc -out secrets.zip -d
