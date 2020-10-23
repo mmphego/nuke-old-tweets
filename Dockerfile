@@ -7,7 +7,7 @@ RUN apt-get update -q && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf  /var/cache/apt/archives/
 # https://github.com/mmphego/semiphemeral
-RUN pip install https://github.com/mmphego/semiphemeral/archive/master.zip
+RUN pip install https://github.com/mmphego/semiphemeral/archive/main.zip
 
 RUN useradd -m $USERNAME
 USER $USERNAME
